@@ -86,6 +86,9 @@ module.exports = {
       exposes: {
         './app': path.join(__dirname, '../src/bootstrap.tsx'),
       },
+      remotes: {
+        [env.MICROFRONTEND_REMOTE_3_NAME]: `${env.MICROFRONTEND_REMOTE_3_NAME}@${env.MICROFRONTEND_REMOTE_3_URL}`,
+      },
       shared: getSharedModules(PACKAGE_JSON.dependencies),
     }),
     // A linter for CSS-like syntaxes like SCSS, Sass, Less and SugarSS
