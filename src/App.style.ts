@@ -30,7 +30,3 @@ export const Image = styled.img`
     animation: ${rotate} infinite 20s linear;
   }
 `;
-
-export const Link = styled.a`
-  color: #61dafb;
-`;

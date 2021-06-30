@@ -87,7 +87,7 @@ module.exports = {
         './app': path.join(__dirname, '../src/bootstrap.tsx'),
       },
       remotes: {
-        [env.MICROFRONTEND_REMOTE_3_NAME]: `${env.MICROFRONTEND_REMOTE_3_NAME}@${env.MICROFRONTEND_REMOTE_3_URL}`,
+        [env.MICROFRONTEND_REMOTE_1_NAME]: `${env.MICROFRONTEND_REMOTE_1_NAME}@${env.MICROFRONTEND_REMOTE_1_URL}`,
       },
       shared: getSharedModules(PACKAGE_JSON.dependencies),
     }),
