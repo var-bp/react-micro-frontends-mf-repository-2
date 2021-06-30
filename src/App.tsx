@@ -15,13 +15,7 @@ const App = (): JSX.Element => {
       <Container>
         <Image src={logo} alt="logo" />
         <DynamicImport />
-        <Button
-          title="Learn React"
-          href="https://reactjs.org"
-          as="a"
-          target="_blank"
-          rel="noopener noreferrer"
-        />
+        <Button title="Learn React" href="https://reactjs.org" as="a" target="_blank" rel="noopener noreferrer" />
       </Container>
     </>
   );

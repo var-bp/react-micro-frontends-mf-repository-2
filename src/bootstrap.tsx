@@ -3,16 +3,18 @@ import ReactDOM from 'react-dom';
 import { match } from 'react-router';
 import { Route, Router, BrowserRouter } from 'react-router-dom';
 import { History } from 'history';
+import { EventEmitterProvider } from 'root/EventEmitterProvider';
 import App from './App';
 
 export const mountFunction = (
   mountPoint: ReactDOM.Container | null,
+  eventEmitter: any,
   history?: History,
   parentRouteMatch?: match,
 ): void => {
   ReactDOM.render(
     <StrictMode>
-      <>
+      <EventEmitterProvider eventEmitter={eventEmitter}>
         {history && parentRouteMatch ? (
           <Router history={history}>
             <Route path={parentRouteMatch.path}>
@@ -26,7 +28,7 @@ export const mountFunction = (
             </Route>
           </BrowserRouter>
         )}
-      </>
+      </EventEmitterProvider>
     </StrictMode>,
     mountPoint,
   );

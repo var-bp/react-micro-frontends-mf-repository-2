@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
-const StylelintPlugin = require('stylelint-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { ModuleFederationPlugin } = require('webpack').container;
 const { env, getSharedModules } = require('./utils');
@@ -88,12 +87,9 @@ module.exports = {
       },
       remotes: {
         [env.MICROFRONTEND_REMOTE_1_NAME]: `${env.MICROFRONTEND_REMOTE_1_NAME}@${env.MICROFRONTEND_REMOTE_1_URL}`,
+        [env.MICROFRONTEND_REMOTE_2_NAME]: `${env.MICROFRONTEND_REMOTE_2_NAME}@${env.MICROFRONTEND_REMOTE_2_URL}`,
       },
       shared: getSharedModules(PACKAGE_JSON.dependencies),
-    }),
-    // A linter for CSS-like syntaxes like SCSS, Sass, Less and SugarSS
-    new StylelintPlugin({
-      files: '**/*.{scss,sass,css,ts,tsx,js,jsx}',
     }),
     new CopyWebpackPlugin({
       patterns: [
