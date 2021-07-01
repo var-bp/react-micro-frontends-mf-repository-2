@@ -87,7 +87,6 @@ module.exports = {
       },
       remotes: {
         [env.MICROFRONTEND_REMOTE_1_NAME]: `${env.MICROFRONTEND_REMOTE_1_NAME}@${env.MICROFRONTEND_REMOTE_1_URL}`,
-        [env.MICROFRONTEND_REMOTE_2_NAME]: `${env.MICROFRONTEND_REMOTE_2_NAME}@${env.MICROFRONTEND_REMOTE_2_URL}`,
       },
       shared: getSharedModules(PACKAGE_JSON.dependencies),
     }),

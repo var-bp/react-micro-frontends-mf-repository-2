@@ -3,18 +3,20 @@ import ReactDOM from 'react-dom';
 import { match } from 'react-router';
 import { Route, Router, BrowserRouter } from 'react-router-dom';
 import { History } from 'history';
-import { EventEmitterProvider } from 'root/EventEmitterProvider';
+import EventEmitter3 from 'eventemitter3';
 import App from './App';
+import ErrorBoundary from './ErrorBoundary';
 
 export const mountFunction = (
   mountPoint: ReactDOM.Container | null,
-  eventEmitter: any,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  eventEmitter: EventEmitter3<string | symbol, any>,
   history?: History,
   parentRouteMatch?: match,
 ): void => {
   ReactDOM.render(
     <StrictMode>
-      <EventEmitterProvider eventEmitter={eventEmitter}>
+      <ErrorBoundary>
         {history && parentRouteMatch ? (
           <Router history={history}>
             <Route path={parentRouteMatch.path}>
@@ -28,7 +30,7 @@ export const mountFunction = (
             </Route>
           </BrowserRouter>
         )}
-      </EventEmitterProvider>
+      </ErrorBoundary>
     </StrictMode>,
     mountPoint,
   );
